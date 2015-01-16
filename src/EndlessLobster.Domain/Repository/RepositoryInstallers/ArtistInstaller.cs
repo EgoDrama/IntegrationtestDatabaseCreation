@@ -6,11 +6,18 @@ namespace EndlessLobster.Domain.Repository.RepositoryInstallers
 {
     public class ArtistInstaller : IWindsorInstaller
     {
+        private readonly IDatabaseFactory _databaseFactory;
+
+        public ArtistInstaller(IDatabaseFactory databaseFactory)
+        {
+            _databaseFactory = databaseFactory;
+        }
+
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
             container.Register(
                 Component.For<IDatabaseFactory>()
-                    .ImplementedBy<DatabaseFactory>()
+                    .UsingFactoryMethod(() => _databaseFactory)
                     .LifestyleTransient(),
 
                 Component.For<IRepository<Artist>>()

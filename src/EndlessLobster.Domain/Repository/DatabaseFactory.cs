@@ -1,16 +1,17 @@
 ﻿using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace EndlessLobster.Domain.Repository
 {
     public interface IDatabaseFactory
     {
-        SqlConnection GetConnection();
+        IDbConnection GetConnection();
     }
 
     public class DatabaseFactory : IDatabaseFactory
     {
-        public SqlConnection GetConnection()
+        public IDbConnection GetConnection()
         {
             return new SqlConnection(ConfigurationManager.ConnectionStrings["ChinookStore"].ConnectionString);
         }

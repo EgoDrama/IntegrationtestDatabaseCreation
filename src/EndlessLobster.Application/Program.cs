@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using Castle.Windsor;
 using EndlessLobster.Domain;
 using EndlessLobster.Domain.Repository;
@@ -9,14 +10,16 @@ namespace EndlessLobster.Application
     {
         static void Main(string[] args)
         {
+            var databaseFactory = new DatabaseFactory();
+            var bootstrapper = new Bootstrapper(databaseFactory);
+
             using (var container = new WindsorContainer())
             {
-                var bootstrapper = new Bootstrapper();
                 bootstrapper.Init(container);
+                var artistRepository = bootstrapper.Container.Resolve<IRepository<Artist>>();
 
-                var artistRepository = container.Resolve<IRepository<Artist>>();
-                int artistId = 1;
-                var artist = artistRepository.Get(artistId);
+                var artistModifier = new ArtistModifier(artistRepository);
+                var artist = artistModifier.ModifyArtist(" - AD/HD");
 
                 Console.WriteLine("Artist name: {0}", artist.Name);
                 Console.ReadLine();
