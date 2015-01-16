@@ -39,6 +39,8 @@ namespace EndlessLobster.Domain.Tests
         [SetUp]
         public void SetUp()
         {
+            ExecuteDatabaseScript("populate_database.txt");
+
             var bootstrapper = new Bootstrapper(_databaseFactory);
             
             using (var container = new WindsorContainer())
