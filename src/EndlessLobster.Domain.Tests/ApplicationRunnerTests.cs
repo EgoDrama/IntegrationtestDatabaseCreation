@@ -1,13 +1,10 @@
-﻿using System;
-using System.Configuration;
-using System.Data;
-using System.Data.SqlServerCe;
+﻿using System.Data.SqlServerCe;
 using System.IO;
 using Castle.Windsor;
 using EndlessLobster.Application;
 using EndlessLobster.Domain.Repository;
-using NUnit.Framework;
 using FluentAssertions;
+using NUnit.Framework;
 
 namespace EndlessLobster.Domain.Tests
 {
@@ -77,14 +74,6 @@ namespace EndlessLobster.Domain.Tests
             {
                 File.Delete(databasePath);
             }
-        }
-    }
-
-    public class TestDatabaseFactory : IDatabaseFactory
-    {
-        public IDbConnection GetConnection()
-        {
-            return new SqlCeConnection(ConfigurationManager.ConnectionStrings["ChinookStore"].ConnectionString);
         }
     }
 }
