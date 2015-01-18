@@ -5,7 +5,7 @@ using EndlessLobster.Domain.Repository;
 
 namespace EndlessLobster.Domain.Tests
 {
-    public class TestDatabaseFactory : IDatabaseFactory
+    public class TestDatabaseFactory
     {
         public IDbConnection GetConnection()
         {

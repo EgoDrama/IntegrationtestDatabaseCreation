@@ -4,16 +4,8 @@ using System.Data.SqlClient;
 
 namespace EndlessLobster.Domain.Repository
 {
-    public interface IDatabaseFactory
+    public class DatabaseFactory
     {
-        IDbConnection GetConnection();
-    }
-
-    public class DatabaseFactory : IDatabaseFactory
-    {
-        public IDbConnection GetConnection()
-        {
-            return new SqlConnection(ConfigurationManager.ConnectionStrings["ChinookStore"].ConnectionString);
-        }
+        
     }
 }

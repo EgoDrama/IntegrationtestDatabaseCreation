@@ -10,8 +10,7 @@ namespace EndlessLobster.Application
     {
         static void Main(string[] args)
         {
-            var databaseFactory = new DatabaseFactory();
-            var bootstrapper = new Bootstrapper(databaseFactory);
+            var bootstrapper = new Bootstrapper();
 
             using (var container = new WindsorContainer())
             {

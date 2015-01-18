@@ -1,4 +1,6 @@
-﻿using Castle.Windsor;
+﻿using Castle.MicroKernel.Registration;
+using Castle.Windsor;
+using EndlessLobster.Domain;
 using EndlessLobster.Domain.Repository;
 using EndlessLobster.Domain.Repository.RepositoryInstallers;
 
@@ -6,19 +8,17 @@ namespace EndlessLobster.Application
 {
     public class Bootstrapper
     {
-        private readonly IDatabaseFactory _databaseFactory;
-        
-        public Bootstrapper(IDatabaseFactory databaseFactory)
-        {
-            _databaseFactory = databaseFactory;
-        }
 
         public IWindsorContainer Container { get; private set; }
 
         public void Init(IWindsorContainer container)
         {
-            var artistInstaller = new ArtistInstaller(_databaseFactory);
-            container.Install(artistInstaller);
+            container.Register(
+                Component.For<IRepository<Artist>>()
+                    .ImplementedBy<ArtistRepository>()
+                    .LifestyleTransient()
+                );
+            
             Container = container;
         }
     }
