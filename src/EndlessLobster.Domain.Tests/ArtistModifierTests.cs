@@ -2,6 +2,8 @@
 using System.Data;
 using System.Data.SqlServerCe;
 using System.IO;
+using Castle.Windsor;
+using EndlessLobster.Application;
 using EndlessLobster.Domain.Repository;
 using FluentAssertions;
 using Moq;
@@ -28,12 +30,13 @@ namespace EndlessLobster.Domain.Tests
                     connection.CreateDatabase();    
                 }
             }
+
+            _databaseHelper.ExecuteDatabaseScript("create_table.txt");
         }
 
         [SetUp]
         public void SetUp()
         {
-            _databaseHelper.ExecuteDatabaseScript("create_database.txt");
             _databaseHelper.ExecuteDatabaseScript("populate_database.txt");
         }
 
@@ -70,8 +73,11 @@ namespace EndlessLobster.Domain.Tests
         [Test]
         public void Returns_Modified_ArtistName_Integration()
         {
-            
-            var artistRepository = new ArtistRepository(_databaseFactory);
+            var container = new WindsorContainer();
+            var fakeDatabaseFactory = new FakeDatabaseFactory();
+            var bootstrapper = new Bootstrapper(fakeDatabaseFactory);
+            bootstrapper.Init(container);
+            var artistRepository = container.Resolve<IRepository<Artist>>();
             var artistModifier = new ArtistModifier(artistRepository);
             const int artistId = 1;
 

@@ -8,17 +8,18 @@ namespace EndlessLobster.Application
 {
     public class Bootstrapper
     {
+        private readonly IDatabaseFactory _databaseFactor;
+
+        public Bootstrapper(IDatabaseFactory databaseFactor)
+        {
+            _databaseFactor = databaseFactor;
+        }
 
         public IWindsorContainer Container { get; private set; }
 
         public void Init(IWindsorContainer container)
         {
-            container.Register(
-                Component.For<IRepository<Artist>>()
-                    .ImplementedBy<ArtistRepository>()
-                    .LifestyleTransient()
-                );
-            
+            container.Install(new ArtistInstaller(_databaseFactor));
             Container = container;
         }
     }

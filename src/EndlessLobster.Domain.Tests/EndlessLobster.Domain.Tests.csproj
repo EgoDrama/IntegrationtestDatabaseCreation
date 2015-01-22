@@ -92,7 +92,7 @@
     <Content Include="Data\delete_database.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Data\create_database.txt">
+    <Content Include="Data\create_table.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
