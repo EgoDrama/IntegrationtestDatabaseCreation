@@ -13,12 +13,7 @@ namespace EndlessLobster.Application
 
         public void Init(IWindsorContainer container)
         {
-            container.Register(
-                Component.For<IRepository<Artist>>()
-                    .ImplementedBy<ArtistRepository>()
-                    .LifestyleTransient()
-                );
-            
+            container.Install(new ArtistInstaller());
             Container = container;
         }
     }
