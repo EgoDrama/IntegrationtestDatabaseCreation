@@ -6,7 +6,7 @@ using NUnit.Framework;
 namespace EndlessLobster.Domain.Tests
 {
     [TestFixture]
-    public class ApplicationRunnerTests
+    public class ArtistModifierTests
     {
         [Test]
         public void Returns_Modified_ArtistName()
