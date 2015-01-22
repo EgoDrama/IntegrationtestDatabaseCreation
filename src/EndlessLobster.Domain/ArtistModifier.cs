@@ -11,11 +11,10 @@ namespace EndlessLobster.Domain
             _artistRepository = artistRepository;
         }
 
-        public Artist ModifyArtist(string nameToAdd)
+        public Artist ModifyArtistName(int artistId, string nameToAdd)
         {
-            int artistId = 1;
             var artist = _artistRepository.Get(artistId);
-            artist.Name += nameToAdd;
+            artist.Name = string.Concat(artist.Name, " - ", nameToAdd);
 
             return artist;
         }

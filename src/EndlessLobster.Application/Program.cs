@@ -16,9 +16,10 @@ namespace EndlessLobster.Application
             {
                 bootstrapper.Init(container);
                 var artistRepository = bootstrapper.Container.Resolve<IRepository<Artist>>();
+                var artistId = 1;
 
                 var artistModifier = new ArtistModifier(artistRepository);
-                var artist = artistModifier.ModifyArtist(" - AD/HD");
+                var artist = artistModifier.ModifyArtistName(artistId, " - AD/HD");
 
                 Console.WriteLine("Artist name: {0}", artist.Name);
                 Console.ReadLine();

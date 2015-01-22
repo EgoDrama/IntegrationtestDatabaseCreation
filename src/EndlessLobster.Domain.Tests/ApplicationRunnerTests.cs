@@ -9,17 +9,30 @@ namespace EndlessLobster.Domain.Tests
     public class ApplicationRunnerTests
     {
         [Test]
-        public void Returns_Modified_Artist()
+        public void Returns_Modified_ArtistName()
         {
             var artistRepository = new Mock<IRepository<Artist>>();
-            var artist = new Artist { Name = "Foo" };
+            var artist = new Artist { Name = "foo" };
+            const int artistId = 1;
             artistRepository.Setup(x => x.Get(It.IsAny<int>())).Returns(artist);
 
             var artistModifier = new ArtistModifier(artistRepository.Object);
 
-            var actual = artistModifier.ModifyArtist("bar");
+            var actual = artistModifier.ModifyArtistName(artistId, "bar");
 
-            actual.Name.Should().Be("Foobar");
+            actual.Name.Should().Be("foo - bar");
+        }
+
+        [Test]
+        public void Returns_Modified_ArtistName_Integration()
+        {
+            var artistRepository = new ArtistRepository();
+            var artistModifier = new ArtistModifier(artistRepository);
+            const int artistId = 1;
+
+            var actual = artistModifier.ModifyArtistName(artistId, "foo");
+
+            actual.Name.Should().Be("AC/DC - foo");
         }
     }
 }
