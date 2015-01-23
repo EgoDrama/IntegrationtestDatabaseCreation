@@ -28,8 +28,7 @@
 //        {
 //            const string databaseName = "TestDatabase.sdf";
 //            var executingAssembly = GetPathExecutingAssembly();
-//            var databasePath = Path.Combine(executingAssembly, "Data");
-//            return string.Format(databaseName, databasePath);
+//            return Path.Combine(executingAssembly, databaseName);            
 //        }
 
 //        private static string GetPathExecutingAssembly()
