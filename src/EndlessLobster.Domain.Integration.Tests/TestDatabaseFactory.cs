@@ -1,9 +1,8 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlServerCe;
-using EndlessLobster.Domain.Repository;
 
-namespace EndlessLobster.Domain.Tests
+namespace EndlessLobster.Domain.Integration.Tests
 {
     public class TestDatabaseFactory
     {

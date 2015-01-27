@@ -4,7 +4,7 @@
 //using System.Reflection;
 //using EndlessLobster.Domain.Repository;
 
-//namespace EndlessLobster.Domain.Tests
+//namespace EndlessLobster.Domain.Integration.Tests
 //{
 //    public class DatabaseHelper
 //    {
