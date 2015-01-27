@@ -2,7 +2,12 @@
 
 namespace EndlessLobster.Domain
 {
-    public class ArtistModifier
+    public interface IArtistModifier
+    {
+        Artist ModifyArtistName(int artistId, string nameToAdd);
+    }
+
+    public class ArtistModifier : IArtistModifier
     {
         private readonly IRepository<Artist> _artistRepository;
 

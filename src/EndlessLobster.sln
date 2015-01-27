@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndlessLobster.Domain", "EndlessLobster.Domain\EndlessLobster.Domain.csproj", "{6098F6CA-D2BA-48BB-A085-D73789186583}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndlessLobster.Application", "EndlessLobster.Application\EndlessLobster.Application.csproj", "{A9AC7190-6B11-4729-9F31-8120FE6A570A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndlessLobster.Domain.Tests", "EndlessLobster.Domain.Tests\EndlessLobster.Domain.Tests.csproj", "{17223BFD-054D-4D7D-984F-EDAC4FFCC9CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndlessLobster.Domain.Integration.Tests", "EndlessLobster.Domain.Integration.Tests\EndlessLobster.Domain.Integration.Tests.csproj", "{F84A5E3A-CF42-4405-9379-C3433A5B5DE9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +29,10 @@ Global
 		{17223BFD-054D-4D7D-984F-EDAC4FFCC9CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17223BFD-054D-4D7D-984F-EDAC4FFCC9CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17223BFD-054D-4D7D-984F-EDAC4FFCC9CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F84A5E3A-CF42-4405-9379-C3433A5B5DE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F84A5E3A-CF42-4405-9379-C3433A5B5DE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F84A5E3A-CF42-4405-9379-C3433A5B5DE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F84A5E3A-CF42-4405-9379-C3433A5B5DE9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -19,6 +19,9 @@ namespace EndlessLobster.Domain.Repository.RepositoryInstallers
                 Component.For<IRepository<Artist>>()
                     .ImplementedBy<ArtistRepository>()
                     .LifestyleTransient(),
+                Component.For<IArtistModifier>()
+                    .ImplementedBy<ArtistModifier>()
+                    .LifestyleTransient(),
                 Component.For<IDatabaseFactory>()
                     .UsingFactoryMethod(() => _databaseFactory)
                     .LifestyleTransient()

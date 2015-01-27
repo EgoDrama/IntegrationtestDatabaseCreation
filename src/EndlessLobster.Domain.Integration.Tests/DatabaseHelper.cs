@@ -4,7 +4,7 @@ using System.IO;
 using System.Reflection;
 using EndlessLobster.Domain.Repository;
 
-namespace EndlessLobster.Domain.Tests
+namespace EndlessLobster.Domain.Integration.Tests
 {
     public class DatabaseHelper
     {
@@ -28,8 +28,7 @@ namespace EndlessLobster.Domain.Tests
         {
             const string databaseName = "TestDatabase.sdf";
             var executingAssembly = GetPathExecutingAssembly();
-            var databasePath = Path.Combine(executingAssembly, "Data");
-            return string.Format(databaseName, databasePath);
+            return Path.Combine(executingAssembly, databaseName);
         }
 
         private static string GetPathExecutingAssembly()

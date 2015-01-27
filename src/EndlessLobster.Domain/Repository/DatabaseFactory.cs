@@ -13,7 +13,7 @@ namespace EndlessLobster.Domain.Repository
     {
         public IDbConnection GetConnection()
         {
-            return new SqlConnection(ConfigurationManager.ConnectionStrings["ChinookStore"].ConnectionString);        
+            return new SqlConnection(ConfigurationManager.ConnectionStrings["ChinookStore"].ConnectionString);
         }
     }
 }

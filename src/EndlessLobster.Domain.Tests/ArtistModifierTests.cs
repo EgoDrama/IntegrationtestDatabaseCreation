@@ -69,21 +69,10 @@ namespace EndlessLobster.Domain.Tests
 
             actual.Name.Should().Be("foo - bar");
         }
-
-        [Test]
-        public void Returns_Modified_ArtistName_Integration()
-        {
-            var container = new WindsorContainer();
             var fakeDatabaseFactory = new FakeDatabaseFactory();
             var bootstrapper = new Bootstrapper(fakeDatabaseFactory);
             bootstrapper.Init(container);
             var artistRepository = container.Resolve<IRepository<Artist>>();
-            var artistModifier = new ArtistModifier(artistRepository);
-            const int artistId = 1;
-
-            var actual = artistModifier.ModifyArtistName(artistId, "foo");
-
-            actual.Name.Should().Be("Foo Bar - foo");
         }
     }
 
@@ -92,6 +81,5 @@ namespace EndlessLobster.Domain.Tests
         public IDbConnection GetConnection()
         {
             return new SqlCeConnection(ConfigurationManager.ConnectionStrings["ChinookStore"].ConnectionString);
-        }
     }
 }
