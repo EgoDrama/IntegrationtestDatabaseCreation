@@ -9,10 +9,11 @@ namespace EndlessLobster.Domain.Repository.RepositoryInstallers
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
             container.Register(
-                
-
                 Component.For<IRepository<Artist>>()
                     .ImplementedBy<ArtistRepository>()
+                    .LifestyleTransient(),
+                Component.For<IArtistModifier>()
+                    .ImplementedBy<ArtistModifier>()
                     .LifestyleTransient()
                 );
         }
