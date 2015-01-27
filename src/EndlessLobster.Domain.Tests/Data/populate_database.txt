@@ -1,1 +1,0 @@
-INSERT INTO Artist VALUES(1, 'Foo Bar')

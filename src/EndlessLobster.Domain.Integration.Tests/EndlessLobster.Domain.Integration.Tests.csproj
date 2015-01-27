@@ -59,7 +59,6 @@
       <SubType>
       </SubType>
     </Compile>
-    <Compile Include="TestDatabaseFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\create_table.txt" />

@@ -1,1 +1,0 @@
-CREATE TABLE [Artist]([ArtistId] int NOT NULL,[Name] nvarchar(120) NULL)
