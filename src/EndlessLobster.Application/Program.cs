@@ -1,8 +1,6 @@
-﻿
-using System;
+﻿using System;
 using Castle.Windsor;
 using EndlessLobster.Domain;
-using EndlessLobster.Domain.Repository;
 
 namespace EndlessLobster.Application
 {
