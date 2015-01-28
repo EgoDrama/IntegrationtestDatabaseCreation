@@ -24,7 +24,6 @@ namespace EndlessLobster.Domain.Repository.RepositoryInstallers
                     .LifestyleTransient(),
                 Component.For<IDatabaseFactory>()
                     .UsingFactoryMethod(() => _databaseFactory)
-                    .LifestyleTransient()
                 );
         }
     }

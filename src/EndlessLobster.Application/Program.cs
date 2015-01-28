@@ -7,7 +7,7 @@ namespace EndlessLobster.Application
 {
     public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             var databaseFactory = new DatabaseFactory();
             var bootstrapper = new Bootstrapper(databaseFactory);

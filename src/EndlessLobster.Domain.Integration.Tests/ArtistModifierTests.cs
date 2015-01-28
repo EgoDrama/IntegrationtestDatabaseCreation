@@ -14,17 +14,20 @@ namespace EndlessLobster.Domain.Integration.Tests
     public class ArtistModifierTests
     {
         private DatabaseHelper _databaseHelper;
+        private IDatabaseFactory _databaseFactory;
 
         [TestFixtureSetUp]
         public void TestFixtureSetUp()
         {
-            _databaseHelper = new DatabaseHelper(new TestDatabaseFactory());
+            _databaseFactory = new TestDatabaseFactory();
+            _databaseHelper = new DatabaseHelper(_databaseFactory);
+
 
             if (!File.Exists(_databaseHelper.GetDatabasePath()))
             {
-                using (var sqlEngine = new SqlCeEngine(ConfigurationManager.ConnectionStrings["ChinookStore"].ConnectionString))
+                using (var engine = new SqlCeEngine(ConfigurationManager.ConnectionStrings["ChinookStore"].ConnectionString))
                 {
-                    sqlEngine.CreateDatabase();
+                    engine.CreateDatabase();
                 }    
             }
 
@@ -60,7 +63,6 @@ namespace EndlessLobster.Domain.Integration.Tests
                 var testDatabaseFactory = new TestDatabaseFactory();
                 var bootstrapper = new Bootstrapper(testDatabaseFactory);
                 bootstrapper.Init(container);
-
                 var artistModifier = container.Resolve<IArtistModifier>();
                 const int artistId = 1;
 
